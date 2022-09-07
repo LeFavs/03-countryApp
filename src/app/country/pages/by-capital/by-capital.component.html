@@ -1,0 +1,21 @@
+<h2>By Capital</h2>
+<hr>
+<div>
+   <app-input-country 
+   (onEnter)="search( $event )" 
+   placeholder="Search your capital..."
+   class="row">
+    </app-input-country>
+</div>
+
+<hr>
+
+<div *ngIf="errorExist" class="alert alert-danger">
+<h4>Sorry!  :(</h4> I couldn't find anything about {{inputData | titlecase}}.
+</div>
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-country-table [countries]="countries"></app-country-table>
+    </div>
+</div>
+<!-- (onDebounce)="suggestions( $event )" -->
